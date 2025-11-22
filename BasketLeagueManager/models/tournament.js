@@ -16,7 +16,7 @@ const tournamentSchema = new moongose.Schema({
     season: {
         type: String,
         required: true,
-        enum: ['Spring', 'Summer', 'Fall', 'Winter']
+        enum: ['Spring', 'Summer', 'Autumn', 'Winter']
     },
     organizer: {
         type: String,

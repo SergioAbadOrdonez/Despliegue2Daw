@@ -43,11 +43,7 @@ const playerStatsSchema = new moongose.Schema({
 });
 
 const matchSchema = new moongose.Schema({
-  tournament: {
-    type: moongose.Schema.Types.ObjectId,
-    ref: "tournaments",
-    required: true,
-  },
+  tournament: { type: String, required: true, minlength: 3, maxlength: 100 },
   date: {
     type: Date,
     required: true,
@@ -86,6 +82,9 @@ const matchSchema = new moongose.Schema({
   playerStats: [playerStatsSchema],
 });
 
-matchSchema.index({ tournament: 1, date: 1, homeTeam: 1, awayTeam: 1 }, { unique: true });
+matchSchema.index(
+  { tournament: 1, date: 1, homeTeam: 1, awayTeam: 1 },
+  { unique: true }
+);
 
 export default moongose.model("matches", matchSchema);

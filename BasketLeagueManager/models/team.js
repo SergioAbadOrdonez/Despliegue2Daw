@@ -1,6 +1,6 @@
 import moongose from "mongoose";
 
-rosterSchema = new moongose.Schema({
+const rosterSchema = new moongose.Schema({
 player: {
       type: moongose.Schema.Types.ObjectId,
       ref: "players",
@@ -15,7 +15,7 @@ player: {
     },
 })
 
-teamSchema = new moongose.Schema({
+const teamSchema = new moongose.Schema({
   name: {
     type: String,
     required: true,
